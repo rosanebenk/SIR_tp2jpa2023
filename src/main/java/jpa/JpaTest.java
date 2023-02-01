@@ -64,6 +64,7 @@ public class JpaTest {
 		for (Ticket next : resultList) {
 			System.out.println("next Ticket: " + next);
 		}
-	}}
+	}
+}
 
 
