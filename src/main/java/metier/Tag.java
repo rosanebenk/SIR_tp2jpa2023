@@ -1,4 +1,6 @@
-//package jpa;
+//package metier;
+//
+//import metier.Ticket;
 //
 //import javax.persistence.GeneratedValue;
 //import javax.persistence.Id;
@@ -12,14 +14,14 @@
 //
 //    private String name;
 //
-//    private User user;
+//    private Ticket ticket;
 //
 //    public Tag() {
 //    }
 //
-//    public Tag(String name, User user) {
+//        public Tag(String name, Ticket ticket) {
 //        this.name = name;
-//        this.user = user;
+//        this.ticket = ticket;
 //    }
 //
 //    public Tag(String name) {
@@ -27,7 +29,7 @@
 //    }
 //
 //    @Id
-//    @GeneratedValue
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    public Long getId() {
 //        return id;
 //    }
@@ -45,17 +47,17 @@
 //    }
 //
 //    @ManyToOne
-//    public User getUser() {
-//        return user;
+//    public Ticket getTicket() {
+//        return ticket;
 //    }
 //
-//    public void setUser(User user) {
-//        this.user = user;
+//    public void setTicket(Ticket ticket) {
+//        this.ticket = ticket;
 //    }
 //
 //    @Override
 //    public String toString() {
 //        return "Employee [id=" + id + ", name=" + name + ", user="
-//                + user.getName() + "]";
+//                + ticket.getName() + "]";
 //    }
 //}

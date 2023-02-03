@@ -1,6 +1,8 @@
 package metier;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Ticket {
@@ -10,6 +12,10 @@ public class Ticket {
     private String name;
 
     private User user;
+
+    private String Tag ;
+
+    private SupportMember member;
 
     public Ticket() {
     }
@@ -55,6 +61,16 @@ public class Ticket {
         return "Ticket [id=" + id + ", name=" + name + ", user="
                 + user.getName() + "]";
     }
+    //@OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
+    public String getTags() {
+        return Tag;
+    }
 
+    public void setTags(String tag) {Tag = tag;}
+
+    @ManyToOne
+    public SupportMember getMember() {return member;}
+
+    public void setMember(SupportMember member) {this.member = member;}
 }
 

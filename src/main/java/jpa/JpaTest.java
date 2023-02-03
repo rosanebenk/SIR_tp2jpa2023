@@ -24,7 +24,7 @@ public class JpaTest {
 	 */
 	public static void main(String[] args) {
 		EntityManagerFactory factory =
-				Persistence.createEntityManagerFactory("dev");
+				Persistence.createEntityManagerFactory("mysql");
 		EntityManager manager = factory.createEntityManager();
 		JpaTest test = new JpaTest(manager);
 
@@ -65,6 +65,7 @@ public class JpaTest {
 			System.out.println("next Ticket: " + next);
 		}
 	}
+	//TODO : Question 5. Portez votre application et gérer au minimum une relation d’héritage, les requêtes, une requête nommée.
 }
 
 
