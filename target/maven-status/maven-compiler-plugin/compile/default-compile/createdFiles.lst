@@ -1,0 +1,4 @@
+jpa\JpaTest.class
+metier\Ticket.class
+jpa\EntityManagerHelper.class
+metier\User.class
