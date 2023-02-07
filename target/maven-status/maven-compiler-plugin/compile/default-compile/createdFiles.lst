@@ -1,6 +1,10 @@
 jpa\JpaTest.class
-metier\Ticket.class
+servlet\MyReslet.class
+metier\BugFiche.class
 metier\SupportMember.class
 jpa\EntityManagerHelper.class
+metier\FeratureRequestFiche.class
 metier\User.class
+servlet\UserInfo.class
 metier\Tags.class
+metier\Fiche.class

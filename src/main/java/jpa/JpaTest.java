@@ -84,6 +84,14 @@ public class JpaTest {
 		manager.createQuery(supportMemberCriteriaQuery).getResultList();
 		System.out.println(manager.createQuery(supportMemberCriteriaQuery).getResultList());
 	}
+
+	public void addUser(){
+
+		CriteriaBuilder criteriaBuilder = this.manager.getCriteriaBuilder();
+		CriteriaQuery<SupportMember> supportMemberCriteriaQuery = criteriaBuilder.createQuery(SupportMember.class);
+		Root<SupportMember> root = supportMemberCriteriaQuery.from(SupportMember.class);
+		supportMemberCriteriaQuery.select(root);
+	}
 }
 
 

@@ -1,6 +1,10 @@
 H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\jpa\EntityManagerHelper.java
 H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\SupportMember.java
 H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\User.java
+H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\servlet\MyReslet.java
+H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\FeratureRequestFiche.java
+H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\BugFiche.java
 H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\Tags.java
-H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\Ticket.java
+H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\servlet\UserInfo.java
+H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\metier\Fiche.java
 H:\Documents\S8\SIR_TP2\SIR_tp2jpa2023\src\main\java\jpa\JpaTest.java
