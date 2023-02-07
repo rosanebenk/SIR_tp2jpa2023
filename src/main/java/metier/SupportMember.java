@@ -13,7 +13,7 @@ public class SupportMember {
 
     private String name;
 
-    private List<Ticket> tickets = new ArrayList<Ticket>();
+    private List<Fiche> tickets = new ArrayList<Fiche>();
 
     public SupportMember() {}
 
@@ -40,11 +40,11 @@ public class SupportMember {
     }
 
     @OneToMany//(mappedBy = "support", cascade = CascadeType.PERSIST)
-    public List<Ticket> getTicket() {
+    public List<Fiche> getTicket() {
         return tickets;
     }
 
-    public void setTicket(List<Ticket> tickets) {
+    public void setTicket(List<Fiche> tickets) {
         this.tickets = tickets;
     }
 

@@ -1,8 +1,6 @@
 package jpa;
 
-import metier.SupportMember;
-import metier.Ticket;
-import metier.User;
+import metier.*;
 
 import java.util.List;
 
@@ -45,7 +43,7 @@ public class JpaTest {
 	}
 
 	private void createTickets() {
-		int numOfEmployees = manager.createQuery("Select t From Ticket t", Ticket.class).getResultList().size();
+		int numOfEmployees = manager.createQuery("Select t From Fiche t", Fiche.class).getResultList().size();
 		if (numOfEmployees == 0) {
 			User user1 = new User("java");
 			User user2 = new User("kotlin");
@@ -55,19 +53,19 @@ public class JpaTest {
 			manager.persist(user2);
 			manager.persist(support1);
 			manager.persist(support2);
-			Ticket ticket = new Ticket("Jakab Gipsz",user1);
+			Fiche ticket = new BugFiche("Jakab Gipsz",user1);
 			ticket.setMember(support1);
 			manager.persist(ticket);
-			manager.persist(new Ticket("Captain Nemo",user1));
-			manager.persist(new Ticket("Jack Sparrow",user2));
+			manager.persist(new FeratureRequestFiche("Captain Nemo",user1));
+			manager.persist(new BugFiche("Jack Sparrow",user2));
 
 		}
 	}
 
 	private void listTickets() {
-		List<Ticket> resultList = manager.createQuery("Select t From Ticket t", Ticket.class).getResultList();
+		List<Fiche> resultList = manager.createQuery("Select t From Fiche t", Fiche.class).getResultList();
 		System.out.println("num of Ticket:" + resultList.size());
-		for (Ticket next : resultList) {
+		for (Fiche next : resultList) {
 			System.out.println("next Ticket: " + next);
 		}
 	}

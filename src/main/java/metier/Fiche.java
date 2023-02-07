@@ -5,7 +5,10 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
-public class Ticket {
+@Inheritance(strategy= InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="Inheritance")
+
+public  abstract class  Fiche {
 
     private Long id;
     private String title;
@@ -18,15 +21,15 @@ public class Ticket {
     private String tag ;
 
 
-    public Ticket() {
+    public Fiche() {
     }
 
-    public Ticket(String name, User user) {
+    public Fiche(String name, User user) {
         this.title = name;
         this.user = user;
     }
 
-    public Ticket(String name) {
+    public Fiche(String name) {
         this.title = name;
     }
 

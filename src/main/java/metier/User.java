@@ -14,7 +14,7 @@ public class User {
 
     private String name;
 
-    private List<Ticket> tickets = new ArrayList<Ticket>();
+    private List<Fiche> tickets = new ArrayList<Fiche>();
 
     public User() {
         super();
@@ -43,15 +43,15 @@ public class User {
     }
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
-    public List<Ticket> getTicket() {
+    public List<Fiche> getTicket() {
         return tickets;
     }
 
-    public void setTicket(List<Ticket> tickets) {
+    public void setTicket(List<Fiche> tickets) {
         this.tickets = tickets;
     }
     public void submitTicket(String title,String description){
-        Ticket ticket = new Ticket();
+        Fiche ticket = new BugFiche();
         ticket.setTitle(title);
         ticket.setDescription(description);
         ticket.setDateEmission(Date.valueOf(LocalDate.now()));
