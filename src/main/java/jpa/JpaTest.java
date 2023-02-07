@@ -8,7 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 
 
 public class JpaTest {
@@ -37,7 +39,7 @@ public class JpaTest {
 		tx.commit();
 
 		test.listTickets();
-
+		test.getallMember();
 		manager.close();
 		System.out.println(".. done");
 	}
@@ -59,6 +61,7 @@ public class JpaTest {
 			manager.persist(new FeratureRequestFiche("Captain Nemo",user1));
 			manager.persist(new BugFiche("Jack Sparrow",user2));
 
+
 		}
 	}
 
@@ -70,6 +73,17 @@ public class JpaTest {
 		}
 	}
 	//TODO : Question 5. Portez votre application et gérer au minimum une relation d’héritage, les requêtes, une requête nommée.
+	public void getallMember(){
+		CriteriaBuilder criteriaBuilder = this.manager.getCriteriaBuilder();
+		CriteriaQuery<SupportMember> supportMemberCriteriaQuery = criteriaBuilder.createQuery(SupportMember.class);
+		Root<SupportMember> root = supportMemberCriteriaQuery.from(SupportMember.class);
+		supportMemberCriteriaQuery.select(root);
+		//supportMemberCriteriaQuery.where(criteriaBuilder.equal(root.type(),SupportMember.class));
+
+
+		manager.createQuery(supportMemberCriteriaQuery).getResultList();
+		System.out.println(manager.createQuery(supportMemberCriteriaQuery).getResultList());
+	}
 }
 
 
