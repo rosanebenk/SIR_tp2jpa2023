@@ -1,4 +1,6 @@
 jpa\JpaTest.class
 metier\Ticket.class
+metier\SupportMember.class
 jpa\EntityManagerHelper.class
 metier\User.class
+metier\Tags.class

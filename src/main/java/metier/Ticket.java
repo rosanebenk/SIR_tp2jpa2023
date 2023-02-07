@@ -1,32 +1,33 @@
 package metier;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Ticket {
 
     private Long id;
-
-    private String name;
-
+    private String title;
+    private String description;
+    private Date dateEmission;
+    private Date datePriseenCharge;
+    private Date dateCloture;
+    private SupportMember support;
     private User user;
+    private String tag ;
 
-    private String Tag ;
-
-    private SupportMember member;
 
     public Ticket() {
     }
 
     public Ticket(String name, User user) {
-        this.name = name;
+        this.title = name;
         this.user = user;
     }
 
     public Ticket(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     @Id
@@ -39,12 +40,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     @ManyToOne
@@ -58,19 +59,52 @@ public class Ticket {
 
     @Override
     public String toString() {
-        return "Ticket [id=" + id + ", name=" + name + ", user="
+        return "Ticket [id=" + id + ", name=" + title + ", user="
                 + user.getName() + "]";
     }
     //@OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
     public String getTags() {
-        return Tag;
+        return tag;
     }
 
-    public void setTags(String tag) {Tag = tag;}
+    public void setTags(String tag) {this.tag = tag;}
 
     @ManyToOne
-    public SupportMember getMember() {return member;}
+    public SupportMember getMember() {return support;}
 
-    public void setMember(SupportMember member) {this.member = member;}
+    public void setMember(SupportMember support) {this.support = support;}
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getDateEmission() {
+        return dateEmission;
+    }
+
+    public void setDateEmission(Date dateEmission) {
+        this.dateEmission = dateEmission;
+    }
+
+    public Date getDatePriseenCharge() {
+        return datePriseenCharge;
+    }
+
+    public void setDatePriseenCharge(Date datePriseenCharge) {
+        this.datePriseenCharge = datePriseenCharge;
+    }
+
+    public Date getDateCloture() {
+        return dateCloture;
+    }
+
+    public void setDateCloture(Date dateCloture) {
+        this.dateCloture = dateCloture;
+    }
+
 }
 

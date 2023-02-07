@@ -13,7 +13,7 @@ public class SupportMember {
 
     private String name;
 
-    private List<Ticket> ticket = new ArrayList<Ticket>();
+    private List<Ticket> tickets = new ArrayList<Ticket>();
 
     public SupportMember() {}
 
@@ -39,17 +39,22 @@ public class SupportMember {
         this.name = name;
     }
 
-    @OneToMany(mappedBy = "supportmember", cascade = CascadeType.PERSIST)
+    @OneToMany//(mappedBy = "support", cascade = CascadeType.PERSIST)
     public List<Ticket> getTicket() {
-        return ticket;
+        return tickets;
     }
 
     public void setTicket(List<Ticket> tickets) {
-        this.ticket = tickets;
+        this.tickets = tickets;
     }
 
     @Override
     public String toString() {
         return "Employee [id=" + id_member + ", name=" + name+ "]";
     }
+
+    public void assignTicket(){
+        //TODO : SQL
+    }
+
 }

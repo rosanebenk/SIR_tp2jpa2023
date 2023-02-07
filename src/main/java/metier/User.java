@@ -1,5 +1,7 @@
 package metier;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class User {
 
     private String name;
 
-    private List<Ticket> ticket = new ArrayList<Ticket>();
+    private List<Ticket> tickets = new ArrayList<Ticket>();
 
     public User() {
         super();
@@ -42,10 +44,19 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.PERSIST)
     public List<Ticket> getTicket() {
-        return ticket;
+        return tickets;
     }
 
     public void setTicket(List<Ticket> tickets) {
-        this.ticket = tickets;
+        this.tickets = tickets;
+    }
+    public void submitTicket(String title,String description){
+        Ticket ticket = new Ticket();
+        ticket.setTitle(title);
+        ticket.setDescription(description);
+        ticket.setDateEmission(Date.valueOf(LocalDate.now()));
+        ticket.setUser(this);
+        ticket.setTags(Tags.NEW.toString());
+        tickets.add(ticket);
     }
 }
