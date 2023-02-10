@@ -8,53 +8,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class SupportMember {
-    private Long id_member;
+@DiscriminatorValue("SupportMember")
 
-    private String name;
-
+public class SupportMember extends Personne{
     private List<Fiche> tickets = new ArrayList<Fiche>();
-
-    public SupportMember() {}
+    public SupportMember() {super();}
 
     public SupportMember(String name) {
-        this.name = name;
+        super(name);
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId_member() {
-        return id_member;
-    }
-
-    public void setId_member(Long id) {
-        this.id_member = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @OneToMany//(mappedBy = "support", cascade = CascadeType.PERSIST)
+    @OneToMany(targetEntity = Fiche.class, mappedBy = "support")
     public List<Fiche> getTicket() {
         return tickets;
     }
 
     public void setTicket(List<Fiche> tickets) {
         this.tickets = tickets;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee [id=" + id_member + ", name=" + name+ "]";
-    }
-
-    public void assignTicket(){
-        //TODO : SQL
     }
 
 }

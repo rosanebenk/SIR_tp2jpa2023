@@ -2,6 +2,8 @@ package jpa;
 
 import metier.*;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -45,7 +47,7 @@ public class JpaTest {
 	}
 
 	private void createTickets() {
-		int numOfEmployees = manager.createQuery("Select t From Fiche t", Fiche.class).getResultList().size();
+		int numOfEmployees = manager.createQuery("Select f From Fiche f", Fiche.class).getResultList().size();
 		if (numOfEmployees == 0) {
 			User user1 = new User("java");
 			User user2 = new User("kotlin");
@@ -56,7 +58,10 @@ public class JpaTest {
 			manager.persist(support1);
 			manager.persist(support2);
 			Fiche ticket = new BugFiche("Jakab Gipsz",user1);
-			ticket.setMember(support1);
+			ticket.setSupport(support1);
+			ticket.setDateEmission(Date.valueOf(LocalDate.now()));
+			ticket.setDatePriseenCharge(Date.valueOf(LocalDate.now()));
+			ticket.setTags(Tags.IN_PROGRESS.toString());
 			manager.persist(ticket);
 			manager.persist(new FeratureRequestFiche("Captain Nemo",user1));
 			manager.persist(new BugFiche("Jack Sparrow",user2));

@@ -22,15 +22,21 @@ public  abstract class  Fiche {
 
 
     public Fiche() {
+        this.tag = Tags.NEW.toString();
+        this.dateEmission = Date.valueOf(LocalDate.now());
     }
 
     public Fiche(String name, User user) {
         this.title = name;
         this.user = user;
+        this.tag = Tags.NEW.toString();
+        this.dateEmission = Date.valueOf(LocalDate.now());
     }
 
     public Fiche(String name) {
         this.title = name;
+        this.tag = Tags.NEW.toString();
+        this.dateEmission = Date.valueOf(LocalDate.now());
     }
 
     @Id
@@ -71,11 +77,14 @@ public  abstract class  Fiche {
     }
 
     public void setTags(String tag) {this.tag = tag;}
-
     @ManyToOne
-    public SupportMember getMember() {return support;}
+    public SupportMember getSupport() {
+        return support;
+    }
 
-    public void setMember(SupportMember support) {this.support = support;}
+    public void setSupport(SupportMember support) {
+        this.support = support;
+    }
 
     public String getDescription() {
         return description;
