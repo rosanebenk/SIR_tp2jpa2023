@@ -1,15 +1,15 @@
 package servlet;
+import dao.EntityManagerHelper;
 import dao.FicheDAO;
 import dao.PersonneDAO;
-import metier.BugFiche;
-import metier.Fiche;
-import metier.Personne;
-import metier.User;
+import metier.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,6 +40,31 @@ public class FicheInfo extends HttpServlet {
                 + request.getParameter("description") + "\n" +
                 "</UL>\n" +
                 "</BODY></HTML>");
+
+
+        FicheDAO ficheDAO = new FicheDAO();
+        Fiche fiche;
+        String type = request.getParameter("type");
+        if(type == "bug"){
+            fiche = new BugFiche(request.getParameter("title"));
+        }else{
+            fiche = new FeratureRequestFiche(request.getParameter("title"));
+        }
+
+        fiche.setDescription(request.getParameter("description"));
+
+        PersonneDAO personneDAO = new PersonneDAO();
+        Personne user = personneDAO.getPersonneByID(Long.parseLong(request.getParameter("user")));
+
+        fiche.setUser((User) user);
+
+        EntityManager manager = EntityManagerHelper.getEntityManager();
+        EntityTransaction tx = manager.getTransaction();
+        tx.begin();
+        ficheDAO.save(fiche);
+        tx.commit();
+        manager.close();
+
     }
     public void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         // TODO voir td2

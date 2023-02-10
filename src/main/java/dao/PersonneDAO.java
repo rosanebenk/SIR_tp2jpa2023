@@ -16,4 +16,10 @@ public class PersonneDAO extends GenericDaoJpaImpl<Personne, Long>{
                 .getResultList();
     }
 
+    public Personne getPersonneByID(Long id){
+
+        return (Personne) this.entityManager.createQuery("select p from Personne as p where p.id_member = :id")
+                .setParameter("id", id).getSingleResult();
+    }
+
 }

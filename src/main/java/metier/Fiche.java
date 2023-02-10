@@ -7,7 +7,6 @@ import java.time.LocalDate;
 @Entity
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="Inheritance")
-
 public  abstract class  Fiche {
 
     private Long id;
