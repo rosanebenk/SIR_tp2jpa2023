@@ -1,12 +1,15 @@
 package metier;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
 @Inheritance(strategy= InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="Inheritance")
+@XmlRootElement(name = "fiche")
 public  abstract class  Fiche {
 
     private Long id;
@@ -40,6 +43,7 @@ public  abstract class  Fiche {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @XmlElement(name = "id")
     public Long getId() {
         return id;
     }
@@ -47,7 +51,7 @@ public  abstract class  Fiche {
     public void setId(Long id) {
         this.id = id;
     }
-
+    @XmlElement(name = "titre")
     public String getTitle() {
         return title;
     }
@@ -57,6 +61,7 @@ public  abstract class  Fiche {
     }
 
     @ManyToOne
+    @XmlElement(name = "user")
     public User getUser() {
         return user;
     }
@@ -71,12 +76,14 @@ public  abstract class  Fiche {
                 + user.getName() + "]";
     }
     //@OneToMany(mappedBy = "tag", cascade = CascadeType.PERSIST)
+    @XmlElement(name = "tag")
     public String getTags() {
         return tag;
     }
 
     public void setTags(String tag) {this.tag = tag;}
     @ManyToOne
+    @XmlElement(name = "support")
     public SupportMember getSupport() {
         return support;
     }
@@ -84,7 +91,7 @@ public  abstract class  Fiche {
     public void setSupport(SupportMember support) {
         this.support = support;
     }
-
+    @XmlElement(name = "description")
     public String getDescription() {
         return description;
     }
@@ -92,7 +99,7 @@ public  abstract class  Fiche {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    @XmlElement(name = "emission")
     public Date getDateEmission() {
         return dateEmission;
     }
@@ -100,7 +107,7 @@ public  abstract class  Fiche {
     public void setDateEmission(Date dateEmission) {
         this.dateEmission = dateEmission;
     }
-
+    @XmlElement(name = "encharge")
     public Date getDatePriseenCharge() {
         return datePriseenCharge;
     }
@@ -108,7 +115,7 @@ public  abstract class  Fiche {
     public void setDatePriseenCharge(Date datePriseenCharge) {
         this.datePriseenCharge = datePriseenCharge;
     }
-
+    @XmlElement(name = "cloture")
     public Date getDateCloture() {
         return dateCloture;
     }

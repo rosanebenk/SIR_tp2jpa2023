@@ -15,13 +15,16 @@
  * limitations under the License.
  */
 
+import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
+import metier.Personne;
+import rest.FicheRessource;
+import rest.PersonneRessource;
+
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-
-//import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 public class RestApplication extends Application {
 
@@ -31,8 +34,9 @@ public class RestApplication extends Application {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
-//        clazzes.add(PetResource.class);
-//        clazzes.add(OpenApiResource.class);
+        clazzes.add(PersonneRessource.class);
+        clazzes.add(FicheRessource.class);
+        clazzes.add(OpenApiResource.class);
 
 
         return clazzes;

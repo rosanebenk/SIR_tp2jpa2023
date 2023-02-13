@@ -28,9 +28,15 @@ public class PersonneRessource {
         String type = personne instanceof User ? "User" : "SupportMember";
         // return pet
         if(type == "User"){
-            return new User();
+            User user = new User();
+            user.setId_member(personne.getId_member());
+            user.setName(personne.getName());
+            return user;
         } else{
-            return new SupportMember();
+            SupportMember support = new SupportMember();
+            support.setId_member(personne.getId_member());
+            support.setName(personne.getName());
+            return support;
         }
 
     }

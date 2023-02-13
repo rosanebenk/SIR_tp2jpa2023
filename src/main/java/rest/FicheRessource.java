@@ -20,9 +20,26 @@ public class FicheRessource {
         String type = fiche instanceof BugFiche ? "Bug" : "Feature";
         // return pet
         if (type == "Bug") {
-            return new BugFiche();
+            BugFiche bug = new BugFiche(fiche.getTitle(),fiche.getUser());
+            bug.setDescription(fiche.getDescription());
+            bug.setDateEmission(fiche.getDateEmission());
+            bug.setId(fiche.getId());
+            bug.setSupport(fiche.getSupport());
+            bug.setDatePriseenCharge(fiche.getDatePriseenCharge());
+            bug.setDateCloture(fiche.getDateCloture());
+            bug.setTags(fiche.getTags());
+            return bug;
         } else {
-            return new FeatureRequestFiche();
+
+            FeatureRequestFiche feature = new FeatureRequestFiche(fiche.getTitle(),fiche.getUser());
+            feature.setDescription(fiche.getDescription());
+            feature.setDateEmission(fiche.getDateEmission());
+            feature.setId(fiche.getId());
+            feature.setSupport(fiche.getSupport());
+            feature.setDatePriseenCharge(fiche.getDatePriseenCharge());
+            feature.setDateCloture(fiche.getDateCloture());
+            feature.setTags(fiche.getTags());
+            return feature;
         }
 
     }
@@ -30,7 +47,7 @@ public class FicheRessource {
     @POST
     @Consumes("application/json")
     public Response addFiche(
-            @Parameter(description = "Personne object that needs to be added to the list", required = true) Personne personne) {
+            @Parameter(description = "Personne object that needs to be added to the list", required = true) Fiche fiche) {
         // add pet
 
         return Response.ok().entity("SUCCESS").build();
