@@ -48,7 +48,7 @@ public class FicheInfo extends HttpServlet {
         if(type == "bug"){
             fiche = new BugFiche(request.getParameter("title"));
         }else{
-            fiche = new FeratureRequestFiche(request.getParameter("title"));
+            fiche = new FeatureRequestFiche(request.getParameter("title"));
         }
 
         fiche.setDescription(request.getParameter("description"));

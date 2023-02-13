@@ -17,4 +17,10 @@ public class FicheDAO extends GenericDaoJpaImpl<Fiche, Long>{
                 .getResultList();
     }
 
+    public Fiche getFicheByID(Long id){
+
+        return (Fiche) this.entityManager.createQuery("select p from Fiche as p where p.id = :id")
+                .setParameter("id", id).getSingleResult();
+    }
+
 }

@@ -63,7 +63,7 @@ public class JpaTest {
 			ticket.setDatePriseenCharge(Date.valueOf(LocalDate.now()));
 			ticket.setTags(Tags.IN_PROGRESS.toString());
 			manager.persist(ticket);
-			manager.persist(new FeratureRequestFiche("Captain Nemo",user1));
+			manager.persist(new FeatureRequestFiche("Captain Nemo",user1));
 			manager.persist(new BugFiche("Jack Sparrow",user2));
 
 
