@@ -9,7 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 @Path("/fiche")
-@Produces({"application/json", "application/xml"})
+@Produces({"application/json"})
 public class FicheRessource {
 
     @GET
@@ -47,7 +47,7 @@ public class FicheRessource {
     @POST
     @Consumes("application/json")
     public Response addFiche(
-            @Parameter(description = "Personne object that needs to be added to the list", required = true) Fiche fiche) {
+            @Parameter(description = "Fiche object that needs to be added to the list", required = true) Fiche fiche) {
         // add pet
 
         return Response.ok().entity("SUCCESS").build();

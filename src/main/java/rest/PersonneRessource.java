@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 import io.swagger.v3.oas.annotations.Parameter;
 
 @Path("/personne")
-@Produces({"application/json", "application/xml"})
+@Produces({"application/json"})
 public class PersonneRessource {
 
     @GET
@@ -41,6 +41,7 @@ public class PersonneRessource {
 
     }
 
+    //curl -X POST -H 'Content-type:application/json' -H 'Accept:application/json' -d '{"name":"peter"}' http://localhost:8080/personne
     @POST
     @Consumes("application/json")
     public Response addPersonne(
