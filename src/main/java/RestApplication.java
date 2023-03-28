@@ -34,6 +34,9 @@ public class RestApplication extends Application {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
+        // SWAGGER endpoints
+        clazzes.add(OpenApiResource.class);
+
         clazzes.add(PersonneRessource.class);
         clazzes.add(FicheRessource.class);
         clazzes.add(OpenApiResource.class);
