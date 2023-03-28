@@ -1,1 +1,1 @@
-# Template de projet pour le TP JPA 2021 UniR
+# Partie 2 du TP5 de SIR
