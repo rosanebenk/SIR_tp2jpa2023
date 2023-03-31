@@ -15,3 +15,9 @@ Puis aller sur la page http://localhost:8080/myform.html pour remplir un formula
 Ou aller sur la page http://localhost:8080/form_fiche.html pour remplir un formulaire pour ajouter une fiche à la base de données.
 
 Après avoir rempli un formulaire, une page de récapitulation s'affichera avec les données précédemment remplies.
+
+
+
+## Info commit
+
+La plupart des commits sont réalisés par Rosane car nous travaillions à deux sur le PC de l'ISTIC sur son compte GitHub.
