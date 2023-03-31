@@ -7,7 +7,9 @@ Hugo THOMAS
 # Organisation des TPs
 
 Le tp2-4 se trouve sur la branche ``TP2``
+
 Le tp5 partie 1 se trouve sur la branche ``TP5``
+
 Le tp5 partie 2 ne se trouve pas sur la branche ``TP5_Partie 2`` mais sur le repository git https://github.com/HugoThoma/JaxRSOpenAPI sur la branche master.
 
 
